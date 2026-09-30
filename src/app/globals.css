@@ -1,71 +1,172 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfaf4;
-  --foreground: #121212;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #e60012;
+  --color-signal: #f68d1f;
+  --color-amber: #ecab37;
+  --color-nav-gold: #e48600;
+  --color-canvas: #7a8aba;
+  --color-periwinkle: #8ba1d4;
+  --color-sky: #9fbee7;
+  --color-lavender: #acace7;
+  --color-ice: #c0d5e6;
+  --color-chrome-indigo: #3d4f97;
+  --color-muted-indigo: #60619c;
+  --color-platinum: #dedede;
+  --color-surface: #ffffff;
+  --color-carbon: #21242e;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-image: radial-gradient(#00000018 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-color: #556288;
+  color: var(--color-carbon);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
 }
 
-/* Neobrutalism Utility Styles */
-.neo-border {
-  border: 3px solid #000000;
+/* Halftone dot-matrix speaker grille texture */
+.carbon-halftone {
+  background-color: #21242e;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 3px 3px;
 }
 
-.neo-border-sm {
-  border: 2px solid #000000;
+/* Bevel Plate (Raised Molded Metal) */
+.nin-plate {
+  background-color: var(--color-canvas);
+  border-top: 1.5px solid #ffffff;
+  border-left: 1.5px solid #ffffff;
+  border-bottom: 2px solid var(--color-chrome-indigo);
+  border-right: 2px solid var(--color-chrome-indigo);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-.neo-shadow {
-  box-shadow: 4px 4px 0px 0px #000000;
+.nin-plate-periwinkle {
+  background-color: var(--color-periwinkle);
+  border-top: 1.5px solid #ffffff;
+  border-left: 1.5px solid #ffffff;
+  border-bottom: 2px solid var(--color-chrome-indigo);
+  border-right: 2px solid var(--color-chrome-indigo);
 }
 
-.neo-shadow-lg {
-  box-shadow: 6px 6px 0px 0px #000000;
+.nin-plate-platinum {
+  background-color: var(--color-platinum);
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-bottom: 1px solid var(--color-chrome-indigo);
+  border-right: 1px solid var(--color-chrome-indigo);
 }
 
-.neo-shadow-sm {
-  box-shadow: 2px 2px 0px 0px #000000;
+/* Inset (Recessed into canvas) */
+.nin-inset {
+  border-top: 1.5px solid var(--color-chrome-indigo);
+  border-left: 1.5px solid var(--color-chrome-indigo);
+  border-bottom: 1.5px solid #ffffff;
+  border-right: 1.5px solid #ffffff;
+  background-color: #ffffff;
 }
 
-.neo-btn {
-  border: 2px solid #000000;
-  box-shadow: 3px 3px 0px 0px #000000;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+/* Raised Amber / Tool Chip */
+.nin-btn-amber {
+  background-color: var(--color-amber);
+  color: var(--color-carbon);
+  border-top: 1.5px solid #ffde7a;
+  border-left: 1.5px solid #ffde7a;
+  border-bottom: 2px solid #a66f12;
+  border-right: 2px solid #a66f12;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.nin-btn-amber:active {
+  border-top: 2px solid #a66f12;
+  border-left: 2px solid #a66f12;
+  border-bottom: 1.5px solid #ffde7a;
+  border-right: 1.5px solid #ffde7a;
+  background-color: var(--color-nav-gold);
 }
 
-.neo-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px 0px #000000;
+/* Signal Orange Button / Action */
+.nin-btn-signal {
+  background-color: var(--color-signal);
+  color: #ffffff;
+  border-top: 1.5px solid #ffb266;
+  border-left: 1.5px solid #ffb266;
+  border-bottom: 2px solid #9e4b02;
+  border-right: 2px solid #9e4b02;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.nin-btn-signal:active {
+  border-top: 2px solid #9e4b02;
+  border-left: 2px solid #9e4b02;
+  border-bottom: 1.5px solid #ffb266;
+  border-right: 1.5px solid #ffb266;
 }
 
-.neo-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0px 0px #000000;
+/* Carbon Secondary Action Button */
+.nin-btn-carbon {
+  background-color: #21242e;
+  color: #ffffff;
+  border-top: 1.5px solid #4a5166;
+  border-left: 1.5px solid #4a5166;
+  border-bottom: 2px solid #0e1014;
+  border-right: 2px solid #0e1014;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.nin-btn-carbon:active {
+  border-top: 2px solid #0e1014;
+  border-left: 2px solid #0e1014;
+  border-bottom: 1.5px solid #4a5166;
+  border-right: 1.5px solid #4a5166;
 }
 
-.neo-card {
-  border: 3px solid #000000;
-  box-shadow: 5px 5px 0px 0px #000000;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+/* Dotted Hairline Divider */
+.nin-dotted-divider {
+  border-bottom: 1px dotted var(--color-muted-indigo);
 }
 
-.neo-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 7px 7px 0px 0px #000000;
+/* Box-Art Display Title (White + Heavy Stroke Outline + Hard Shadow) */
+.box-art-title {
+  color: #ffffff;
+  font-weight: 900;
+  font-style: italic;
+  -webkit-text-stroke: 1.5px #3d4f97;
+  text-shadow: 3px 3px 0px #21242e;
+  letter-spacing: -0.5px;
+}
+
+/* Chamfered 45deg Cut-corner geometry */
+.chamfer-lg {
+  clip-path: polygon(
+    10px 0%,
+    calc(100% - 10px) 0%,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0% calc(100% - 10px),
+    0% 10px
+  );
+}
+
+.chamfer-sm {
+  clip-path: polygon(
+    6px 0%,
+    calc(100% - 6px) 0%,
+    100% 6px,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    6px 100%,
+    0% calc(100% - 6px),
+    0% 6px
+  );
 }

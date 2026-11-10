@@ -1,0 +1,33 @@
+rules_version = '2';
+
+// 마이링크 Security Rules (12주차)
+// - 읽기: 누구나 (공개 페이지 /[username])
+// - 쓰기: 로그인한 본인만 (request.auth.uid == userId)
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 링크: users/{userId}/links/{linkId}
+    match /users/{userId}/links/{linkId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+      // 13주차 클릭 통계: 방문자(비로그인 포함)는 clickCount 를 정확히 +1 하는 것만 허용
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['clickCount'])
+                    && request.resource.data.clickCount == resource.data.get('clickCount', 0) + 1;
+    }
+
+    // 프로필: users/{userId}/profile/{docId}
+    match /users/{userId}/profile/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // username → userId 매핑 (중복 방지 + /[username] 조회용)
+    match /usernames/{username} {
+      allow read: if true;
+      // 이미 존재하는 username 은 create 가 아니라 update 로 취급되어 거부됨 → 중복 차단
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow update: if false;
+    }
+  }
+}

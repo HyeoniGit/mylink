@@ -1,0 +1,84 @@
+{
+  "user": {
+    "id": "user-01",
+    "slug": "minjun",
+    "name": "김민준 · UX Designer",
+    "bio": "디자인과 코드로 일상의 문제를 해결하는 프리랜서 디자이너 & 개발자입니다. 협업 및 프로젝트 문의 환영합니다 😊",
+    "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+    "email": "minjun.dev@example.com",
+    "location": "Seoul, South Korea",
+    "socialLinks": {
+      "github": "https://github.com",
+      "instagram": "https://instagram.com",
+      "twitter": "https://twitter.com"
+    }
+  },
+  "links": [
+    {
+      "id": "link-01",
+      "title": "개인 포트폴리오 웹사이트",
+      "url": "https://portfolio.example.com",
+      "description": "최근 3년간 진행한 UX/UI 디자인 및 프론트엔드 프로젝트 아카이브",
+      "category": "portfolio",
+      "clicks": 342,
+      "order": 1,
+      "isVisible": true,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "link-02",
+      "title": "Behance 디자인 케이스 스터디",
+      "url": "https://behance.net/example",
+      "description": "모바일 앱 리디자인, 브랜드 아이덴티티, 디자인 시스템 작업물",
+      "category": "design",
+      "clicks": 218,
+      "order": 2,
+      "isVisible": true,
+      "createdAt": "2026-09-05T11:30:00Z"
+    },
+    {
+      "id": "link-03",
+      "title": "GitHub 오픈소스 프로젝트",
+      "url": "https://github.com/example",
+      "description": "Next.js 컴포넌트 라이브러리 및 생산성 유틸리티 툴 개발 레포지토리",
+      "category": "dev",
+      "clicks": 185,
+      "order": 3,
+      "isVisible": true,
+      "createdAt": "2026-09-10T14:15:00Z"
+    },
+    {
+      "id": "link-04",
+      "title": "Figma 커뮤니티 리소스",
+      "url": "https://figma.com/@example",
+      "description": "무료 배포 중인 UI 키트, 아이콘 세트 및 레이아웃 와이어프레임 템플릿",
+      "category": "design",
+      "clicks": 154,
+      "order": 4,
+      "isVisible": true,
+      "createdAt": "2026-09-15T08:20:00Z"
+    },
+    {
+      "id": "link-05",
+      "title": "기술 & 디자인 블로그 (Velog)",
+      "url": "https://velog.io/@example",
+      "description": "웹 접근성 가이드, 디자인 토큰 설계기 및 개발 트러블슈팅 기록",
+      "category": "blog",
+      "clicks": 97,
+      "order": 5,
+      "isVisible": true,
+      "createdAt": "2026-09-20T16:00:00Z"
+    },
+    {
+      "id": "link-06",
+      "title": "1:1 프로젝트 의뢰 및 커피챗 (이메일)",
+      "url": "mailto:minjun.dev@example.com",
+      "description": "신규 외주 문의, 커피챗 제안 등 편하게 메일 보내주세요!",
+      "category": "contact",
+      "clicks": 73,
+      "order": 6,
+      "isVisible": true,
+      "createdAt": "2026-09-25T10:00:00Z"
+    }
+  ]
+}

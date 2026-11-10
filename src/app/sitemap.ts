@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { collection, getDocs } from 'firebase/firestore';
-import { getDb, isFirebaseConfigured } from '@/lib/firebase/client';
+import { isFirebaseConfigured } from '@/lib/firebase/client';
+import { listUsernamesServer } from '@/lib/firebase/server';
 import { SITE_URL } from '@/lib/site';
 
 // 1시간마다 다시 생성 → 새로 가입한 사용자의 /username 도 반영
@@ -14,8 +14,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   if (isFirebaseConfigured) {
     try {
-      const snap = await getDocs(collection(getDb(), 'usernames'));
-      snap.forEach((d) => pages.push({ url: `${SITE_URL}/${d.id}`, changeFrequency: 'daily', priority: 0.8 }));
+      const usernames = await listUsernamesServer();
+      usernames.forEach((u) => pages.push({ url: `${SITE_URL}/${u}`, changeFrequency: 'daily', priority: 0.8 }));
     } catch (e) {
       console.error('sitemap: 사용자 목록을 불러오지 못했습니다.', e);
     }

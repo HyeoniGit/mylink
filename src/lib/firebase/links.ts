@@ -3,7 +3,6 @@ import {
   collection,
   deleteDoc,
   doc,
-  getDocs,
   increment,
   onSnapshot,
   orderBy,
@@ -41,12 +40,6 @@ export function subscribeLinks(
     (snap) => onChange(snap.docs.map((d) => toLinkDoc(d.id, d.data()))),
     onError
   );
-}
-
-/** Read (1회): 공개 페이지에서 사용 */
-export async function fetchLinks(userId: string): Promise<LinkDoc[]> {
-  const snap = await getDocs(query(linksCol(userId), orderBy('createdAt', 'asc')));
-  return snap.docs.map((d) => toLinkDoc(d.id, d.data()));
 }
 
 /** Create */

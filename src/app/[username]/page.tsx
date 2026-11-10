@@ -3,19 +3,14 @@ import { notFound } from 'next/navigation';
 import PageShell from '@/components/profile/PageShell';
 import ProfileCard from '@/components/profile/ProfileCard';
 import { isFirebaseConfigured } from '@/lib/firebase/client';
-import { fetchLinks } from '@/lib/firebase/links';
-import { fetchProfile, findUserIdByUsername } from '@/lib/firebase/profile';
+import { loadPublicPage } from '@/lib/firebase/server';
 
 type Params = Promise<{ username: string }>;
 
 /** /[username] → userId → 프로필 + 링크. 없으면 null */
 async function loadPage(rawUsername: string) {
   if (!isFirebaseConfigured) return null;
-  const username = decodeURIComponent(rawUsername).toLowerCase();
-  const userId = await findUserIdByUsername(username);
-  if (!userId) return null;
-  const [profile, links] = await Promise.all([fetchProfile(userId), fetchLinks(userId)]);
-  return profile ? { userId, profile, links } : null;
+  return loadPublicPage(rawUsername);
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {

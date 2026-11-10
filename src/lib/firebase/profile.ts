@@ -36,12 +36,6 @@ export async function fetchProfile(userId: string): Promise<ProfileDoc | null> {
   return snap.exists() ? (snap.data() as ProfileDoc) : null;
 }
 
-/** /[username] → userId 변환. 없으면 null */
-export async function findUserIdByUsername(username: string): Promise<string | null> {
-  const snap = await getDoc(usernameRef(username.toLowerCase()));
-  return snap.exists() ? (snap.data().uid as string) : null;
-}
-
 /**
  * 로그인 직후 호출: 프로필이 없으면 생성한다.
  * - username: 이메일 앞부분 (중복이면 숫자 접미사)

@@ -1,12 +1,13 @@
 import type { LinkDoc, ProfileDoc } from '@/types/mylink';
+import { firebaseConfig } from './client';
 
 /**
  * 서버(공개 페이지·OG 이미지·sitemap) 전용 Firestore 읽기.
  * Vercel 서버리스에서는 Firebase 웹 SDK 의 실시간 연결이 멈출 수 있어
  * 공개 읽기 규칙(allow read: if true)을 이용해 REST API 로 직접 조회한다.
  */
-const PROJECT_ID = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
-const API_KEY = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
+const PROJECT_ID = firebaseConfig.projectId;
+const API_KEY = firebaseConfig.apiKey;
 const DOCS_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents`;
 
 type FirestoreValue = {
